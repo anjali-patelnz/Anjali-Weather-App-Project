@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>W5 Homework</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            id="city-search"
+            placeholder="🔎 Search city"
+            aria-label="Search"
+          />
+  
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            id="celcius-button"
+          >
+            °C
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            id="farenheit-button"
+          >
+            °F
+          </button>
+          <br />
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            id="findMe-button"
+          >
+          📍 Find my weather
+        </form>
+      </nav>
+      <br />
+      <div class="currentTemp">
+        <div class="container">
+          <img src="images/Sun.png" alt="sun" width="50%" />
+
+          <div class="centered">
+            <h1>22°c</h1>
+          </div>
+
+          <div class="bottom-centered">
+            <div class="row">
+              <div class="col">
+                <h2>Auckland</h2>
+              </div>
+              <div class="col">
+                <p class="tempHL"><span class = "tempHi">24°c</span> <br /><span class = "tempLo">17°c</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="date">Sat, 7 November 2020 2:00pm</p>
+      <div class="factors">
+        <div class="container">
+          <div class="row">
+            <div class="col">Humidity</div>
+            <div class="col" id="humidity">90%</div>
+            <div class="w-100"></div>
+            <div class="col">Wind</div>
+            <div class="col" id="wind">5km/h</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="hourly">
+        <div class="card-group">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☀</h5>
+              <p class="card-text">17°c</p>
+              <p class="card-text">3pm</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">🌩</h5>
+              <p class="card-text">12°c</p>
+              <p class="card-text">4pm</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☀</h5>
+              <p class="card-text">17°c</p>
+              <p class="card-text">5pm</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☁</h5>
+              <p class="card-text">15°c</p>
+              <p class="card-text">6pm</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☀</h5>
+              <p class="card-text">17°c</p>
+              <p class="card-text">7pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="daily">
+        <div class="card-group">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☀</h5>
+              <p class="card-text">17°c/<strong>21°c</strong></p>
+              <p class="card-text">Sun</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">⛈</h5>
+              <p class="card-text">14°c/<strong>20°c</strong></p>
+              <p class="card-text">Mon</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☁</h5>
+              <p class="card-text">16°c/<strong>19°c</strong></p>
+              <p class="card-text">Tue</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">🌥</h5>
+              <p class="card-text">17°c/<strong>22°c</strong></p>
+              <p class="card-text">Wed</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">☀</h5>
+              <p class="card-text">17°c/<strong>21°c</strong></p>
+              <p class="card-text">Thu</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
