@@ -1,7 +1,6 @@
 let now = new Date();
 let dateSection = document.querySelector(".date");
 
-let year = now.getFullYear();
 let date = now.getDate();
 let hour = now.getHours();
 let minutes = now.getMinutes();
@@ -25,7 +24,7 @@ let months = [
 
 let month = months[now.getMonth()];
 
-dateSection.innerHTML = `Last updated: ${day}, ${date} ${month} ${year} ${hour}:${minutes}`;
+dateSection.innerHTML = `${day}, ${date} ${month}, ${hour}:${minutes}`;
 
 let cityName = document.querySelector("h2");
 
