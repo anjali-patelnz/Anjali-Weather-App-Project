@@ -1,5 +1,12 @@
+body {
+  background-image: url(https://github.com/anjali-patelnz/Anjali-Weather-App-Project/blob/main/images/Goldglitter.jpg?raw=true);
+  background-size: cover;
+}
 .weather-app {
   background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
 }
 .date {
   text-align: center;
