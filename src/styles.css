@@ -8,6 +8,10 @@ body {
   margin: 20px auto;
   padding: 10px;
 }
+h1 {
+  text-align: center;
+  font-family: "Berkshire Swash", cursive;
+}
 .date {
   text-align: center;
 }
@@ -21,18 +25,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.bottom-centered {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.tempHL {
-  font-size: 15px;
-}
-.tempHi {
-  font-weight: bold;
-}
+
 .factors .container {
   text-align: center;
   max-width: 40%;
