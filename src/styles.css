@@ -1,9 +1,15 @@
 body {
-  background-image: url(https://github.com/anjali-patelnz/Anjali-Weather-App-Project/blob/main/images/Goldglitter.jpg?raw=true);
+  background-image: url(https://github.com/anjali-patelnz/Anjali-Weather-App-Project/blob/main/images/Raindrops.jpg?raw=true);
   background-size: cover;
 }
 .weather-app {
-  background-image: linear-gradient(to top, #7028e4 0%, #e5b2ca 100%);
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
+  background-blend-mode: multiply;
   max-width: 600px;
   margin: 20px auto;
   padding: 10px;
