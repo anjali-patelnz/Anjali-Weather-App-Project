@@ -25,29 +25,35 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <form id="search-form">
-          <div class="row">
-            <div class="col-10">
-              <input
-                type="search"
-                id="city-search"
-                class="form-control"
-                placeholder="Enter a city..."
-                autofocus="on"
-              />
+        <div class="search-bar">
+          <form id="search-form">
+            <div class="row">
+              <div class="col-10">
+                <input
+                  type="search"
+                  id="city-search"
+                  class="form-control"
+                  placeholder="Enter a city..."
+                  autofocus="on"
+                />
+              </div>
+              <div class="col-1">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="search-button"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+              <div class="col-1">
+                <button type="click" class="btn btn-primary" id="findMe-button">
+                  <i class="fas fa-map-marker-alt"></i>
+                </button>
+              </div>
             </div>
-            <div class="col-1">
-              <button type="submit" class="btn btn-primary" id="search-button">
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-            <div class="col-1">
-              <button type="click" class="btn btn-primary" id="findMe-button">
-                <i class="fas fa-map-marker-alt"></i>
-              </button>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
 
         <br />
 
@@ -55,46 +61,38 @@
         <p class="date">Sat, 7 November, 2:00</p>
 
         <div class="row">
-          <div class="col-6">
-            <div class="currentTemp">
-              <img src="images/Sun.png" alt="sun" width="50%" />
-              <h2 id="mainTemp">22°c</h2>
+          <div class="col-sm">
+            <div class="weatherIcon">
+              <img src="images/Sun.png" alt="sun" width="150" height="150" />
             </div>
           </div>
-        </div>
-
-        <div class="currentTemp">
-          <div class="container">
-            <div class="centered"></div>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              id="celcius-button"
-            >
-              °C
-            </button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              id="farenheit-button"
-            >
-              °F
-            </button>
-          </div>
-        </div>
-
-        <div class="factors">
-          <div class="container">
-            <div class="row">
-              <div class="col">Humidity</div>
-              <div class="col" id="humidity">90%</div>
-              <div class="w-100"></div>
-              <div class="col">Wind</div>
-              <div class="col" id="wind">5km/h</div>
+          <div class="col-sm">
+            <div class="currentTemp">
+              <span id="mainTemp">22</span>
+              <span class="units">
+                <a href="#" id="celcius" class="active">°C</a>
+                <span>|</span>
+                <a href="#" id="farenheit">°F</a>
+              </span>
+            </div>
+            <div class="mainHL">
+              <i class="fas fa-thermometer-empty"></i
+              ><span class="mainLo"> 12</span>°
+              <i class="fas fa-thermometer-full"></i
+              ><span class="mainHi"> 24</span>°
             </div>
           </div>
         </div>
         <br />
+        <div class="factors">
+          <p>
+            Humidity <span id="humidity">90</span>% | Wind
+            <span class="wind">5</span>km/h
+          </p>
+        </div>
+
+        <br />
+
         <div class="hourly">
           <div class="card-group">
             <div class="card">
