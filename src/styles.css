@@ -18,16 +18,18 @@ body {
   color: white;
 }
 
+.search-bar {
+  display: block;
+  margin: 10px auto;
+  max-width: 400px;
+}
+
 h1 {
   text-align: center;
   font-family: "Berkshire Swash", cursive;
   font-size: 60px;
 }
 
-form {
-  margin: 0 auto;
-  max-width: 500px;
-}
 .date {
   text-align: center;
 }
