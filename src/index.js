@@ -1,30 +1,40 @@
-let now = new Date();
+function formatDate(date) {
+  let daydate = date.getDate();
+
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  let month = months[date.getMonth()];
+
+  return `${day}, ${daydate} ${month}, ${hour}:${minutes}`;
+}
+
+let currentTime = new Date();
 let dateSection = document.querySelector(".date");
-
-let date = now.getDate();
-let hour = now.getHours();
-let minutes = now.getMinutes();
-
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-let month = months[now.getMonth()];
-
-dateSection.innerHTML = `${day}, ${date} ${month}, ${hour}:${minutes}`;
+dateSection.innerHTML = formatDate(currentTime);
 
 let cityName = document.querySelector("h2");
 
