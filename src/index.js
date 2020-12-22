@@ -5,6 +5,7 @@ function formatDate(date) {
   if (hour < 10) {
     hour = `0${hour}`;
   }
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -12,6 +13,7 @@ function formatDate(date) {
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
+
   let months = [
     "January",
     "February",
@@ -26,7 +28,6 @@ function formatDate(date) {
     "November",
     "December",
   ];
-
   let month = months[date.getMonth()];
 
   return `${day}, ${daydate} ${month}, ${hour}:${minutes}`;
@@ -36,12 +37,27 @@ let currentTime = new Date();
 let dateSection = document.querySelector(".date");
 dateSection.innerHTML = formatDate(currentTime);
 
-let cityName = document.querySelector("h2");
+function showWeather(response) {
+  let mainTemp = document.querySelector("#mainTemp");
+  let temperature = Math.round(response.data.main.temp);
+  let cityName = document.querySelector("#city");
+  let tempHi = document.querySelector(".mainHi");
+  let maxTemp = Math.round(response.data.main.temp_max);
+  let tempLo = document.querySelector(".mainLo");
+  let minTemp = Math.round(response.data.main.temp_min);
+  let humidity = document.querySelector("#humidity");
+  let windspeed = document.querySelector("#wind");
+  let wind = Math.round(response.data.wind.speed);
+  mainTemp.innerHTML = `${temperature}°`;
+  cityName.innerHTML = `${response.data.name}`;
+  tempHi.innerHTML = `${maxTemp}`;
+  tempLo.innerHTML = `${minTemp}`;
+  humidity.innerHTML = `${response.data.main.humidity}`;
+  windspeed.innerHTML = `${wind} `;
+}
 
 function displayCity(event) {
   event.preventDefault();
-  let userCity = document.querySelector("#city-search");
-  cityName.innerHTML = `${userCity.value}`;
   let myCity = document.querySelector("#city-search").value;
   let metric = "metric";
   let apiKey = "c31b4fce1a46009ae0af063ea44bb353";
@@ -49,10 +65,8 @@ function displayCity(event) {
   axios.get(url).then(showWeather);
 }
 
-let changeCity = document.querySelector(".form-inline");
+let changeCity = document.querySelector("#search-form");
 changeCity.addEventListener("submit", displayCity);
-
-let currentTemp = document.querySelector("h1");
 
 function displayCelcius(event) {
   event.preventDefault();
@@ -65,24 +79,6 @@ function displayCelcius(event) {
 
 let degreeCelci = document.querySelector("#celcius-button");
 degreeCelci.addEventListener("click", displayCelcius);
-
-function showWeather(response) {
-  let h1 = document.querySelector("h1");
-  let temperature = Math.round(response.data.main.temp);
-  let h2 = document.querySelector("h2");
-  let tempHi = document.querySelector(".tempHi");
-  let maxTemp = Math.round(response.data.main.temp_max);
-  let tempLo = document.querySelector(".tempLo");
-  let minTemp = Math.round(response.data.main.temp_min);
-  let humidity = document.querySelector("#humidity");
-  let wind = document.querySelector("#wind");
-  h1.innerHTML = `${temperature}°`;
-  h2.innerHTML = `${response.data.name}`;
-  tempHi.innerHTML = `${maxTemp}°`;
-  tempLo.innerHTML = `${minTemp}°`;
-  humidity.innerHTML = `${response.data.main.humidity}%`;
-  wind.innerHTML = `${response.data.wind.speed} km/h`;
-}
 
 function retrievePosition(position) {
   let apiKey = "c31b4fce1a46009ae0af063ea44bb353";
