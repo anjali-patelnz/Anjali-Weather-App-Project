@@ -38,6 +38,7 @@ let dateSection = document.querySelector(".date");
 dateSection.innerHTML = formatDate(currentTime);
 
 function showWeather(response) {
+  let mainIcon = document.querySelector("#mainIcon");
   let mainTemp = document.querySelector("#mainTemp");
   let temperature = Math.round(response.data.main.temp);
   let cityName = document.querySelector("#city");
@@ -48,6 +49,12 @@ function showWeather(response) {
   let humidity = document.querySelector("#humidity");
   let windspeed = document.querySelector("#wind");
   let wind = Math.round(response.data.wind.speed);
+
+  mainIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   mainTemp.innerHTML = `${temperature}°`;
   cityName.innerHTML = `${response.data.name}`;
   tempHi.innerHTML = `${maxTemp}`;
