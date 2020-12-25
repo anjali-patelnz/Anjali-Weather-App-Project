@@ -48,6 +48,14 @@ h1 {
   top: -30px;
 }
 
+.fa-thermometer-empty {
+  color: blue;
+}
+
+.fa-thermometer-full {
+  color: red;
+}
+
 .daily,
 .hourly,
 .card-body {

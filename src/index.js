@@ -57,8 +57,8 @@ function showWeather(response) {
 
   mainTemp.innerHTML = `${temperature}°`;
   cityName.innerHTML = `${response.data.name}`;
-  tempHi.innerHTML = `${maxTemp}`;
-  tempLo.innerHTML = `${minTemp}`;
+  tempHi.innerHTML = ` ${maxTemp}`;
+  tempLo.innerHTML = ` ${minTemp}`;
   humidity.innerHTML = `${response.data.main.humidity}`;
   windspeed.innerHTML = `${wind} `;
 }
