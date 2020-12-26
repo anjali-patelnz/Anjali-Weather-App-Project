@@ -99,21 +99,6 @@ function findPosition(event) {
 let myWeather = document.querySelector("#findMe-button");
 myWeather.addEventListener("click", findPosition);
 
-function displayCelcius(event) {
-  event.preventDefault();
-  let mainTemp = document.querySelector("#mainTemp");
-  let tempHi = document.querySelector(".mainHi");
-  let tempLo = document.querySelector(".mainLo");
-
-  let convertCelciMain = Math.round(mainCelciTemp);
-  let convertCelciHi = Math.round(mainCelciTempHi);
-  let convertCelciLo = Math.round(mainCelciTempLo);
-
-  mainTemp.innerHTML = `${convertCelciMain}°`;
-  tempHi.innerHTML = ` ${convertCelciHi}`;
-  tempLo.innerHTML = ` ${convertCelciLo}`;
-}
-
 function displayFarenheit(event) {
   event.preventDefault();
   let mainTemp = document.querySelector("#mainTemp");
@@ -130,14 +115,35 @@ function displayFarenheit(event) {
   mainTemp.innerHTML = `${convertFarenMain}°`;
   tempHi.innerHTML = ` ${convertFarenHi}`;
   tempLo.innerHTML = ` ${convertFarenLo}`;
+
+  celciusButton.classList.remove("active");
+  farenheitButton.classList.add("active");
+}
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let mainTemp = document.querySelector("#mainTemp");
+  let tempHi = document.querySelector(".mainHi");
+  let tempLo = document.querySelector(".mainLo");
+
+  let convertCelciMain = Math.round(mainCelciTemp);
+  let convertCelciHi = Math.round(mainCelciTempHi);
+  let convertCelciLo = Math.round(mainCelciTempLo);
+
+  mainTemp.innerHTML = `${convertCelciMain}°`;
+  tempHi.innerHTML = ` ${convertCelciHi}`;
+  tempLo.innerHTML = ` ${convertCelciLo}`;
+
+  celciusButton.classList.add("active");
+  farenheitButton.classList.remove("active");
 }
 
 let mainCelciTemp = null;
 
-let degreeFaren = document.querySelector("#farenheitButton");
-degreeFaren.addEventListener("click", displayFarenheit);
+let farenheitButton = document.querySelector("#farenheitButton");
+farenheitButton.addEventListener("click", displayFarenheit);
 
-let degreeCelci = document.querySelector("#celciusButton");
-degreeCelci.addEventListener("click", displayCelcius);
+let celciusButton = document.querySelector("#celciusButton");
+celciusButton.addEventListener("click", displayCelcius);
 
 findWeather("Wellington");
