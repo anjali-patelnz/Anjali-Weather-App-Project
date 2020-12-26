@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let daydate = date.getDate();
 
   let hour = date.getHours();
@@ -33,6 +34,19 @@ function formatDate(date) {
   return `${day}, ${daydate} ${month}, ${hour}:${minutes}`;
 }
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hour}:${minutes}`;
+}
+
 let currentTime = new Date();
 let dateSection = document.querySelector(".date");
 dateSection.innerHTML = formatDate(currentTime);
@@ -42,6 +56,7 @@ function showWeather(response) {
   let mainTemp = document.querySelector("#mainTemp");
   let temperature = Math.round(response.data.main.temp);
   let cityName = document.querySelector("#city");
+  let dateSection = document.querySelector(".date");
   let tempHi = document.querySelector(".mainHi");
   let maxTemp = Math.round(response.data.main.temp_max);
   let tempLo = document.querySelector(".mainLo");
@@ -57,6 +72,7 @@ function showWeather(response) {
 
   mainTemp.innerHTML = `${temperature}°`;
   cityName.innerHTML = `${response.data.name}`;
+  dateSection.innerHTML = formatDate(response.data.dt * 1000);
   tempHi.innerHTML = ` ${maxTemp}`;
   tempLo.innerHTML = ` ${minTemp}`;
   humidity.innerHTML = `${response.data.main.humidity}`;
@@ -67,11 +83,36 @@ function showWeather(response) {
   mainCelciTempLo = response.data.main.temp_min;
 }
 
+function showHourlyForcast(response) {
+  let hourlyForcast = document.querySelector("#hourlyForcast");
+  hourlyForcast.innerHTML = null;
+  let hourlydata = null;
+
+  for (let index = 0; index < 5; index++) {
+    hourlydata = response.data.list[index];
+    hourlyForcast.innerHTML += `
+  <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><img
+        src="http://openweathermap.org/img/wn/${
+          hourlydata.weather[0].icon
+        }@2x.png"
+      /></h5>
+                <p class="card-text">${Math.round(hourlydata.main.temp)}°</p>
+                <p class="card-text">${formatHours(hourlydata.dt * 1000)}</p>
+              </div>
+            </div>`;
+  }
+}
+
 function findWeather(city) {
   let metric = "metric";
   let apiKey = "c31b4fce1a46009ae0af063ea44bb353";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${metric}`;
   axios.get(url).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showHourlyForcast);
 }
 
 function searchbarCity(event) {
@@ -89,6 +130,9 @@ function retrievePosition(position) {
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showHourlyForcast);
 }
 
 function findPosition(event) {
