@@ -101,10 +101,18 @@ myWeather.addEventListener("click", findPosition);
 
 function displayCelcius(event) {
   event.preventDefault();
-}
+  let mainTemp = document.querySelector("#mainTemp");
+  let tempHi = document.querySelector(".mainHi");
+  let tempLo = document.querySelector(".mainLo");
 
-let degreeCelci = document.querySelector("#celciusButton");
-degreeCelci.addEventListener("click", displayCelcius);
+  let convertCelciMain = Math.round(mainCelciTemp);
+  let convertCelciHi = Math.round(mainCelciTempHi);
+  let convertCelciLo = Math.round(mainCelciTempLo);
+
+  mainTemp.innerHTML = `${convertCelciMain}°`;
+  tempHi.innerHTML = ` ${convertCelciHi}`;
+  tempLo.innerHTML = ` ${convertCelciLo}`;
+}
 
 function displayFarenheit(event) {
   event.preventDefault();
@@ -128,5 +136,8 @@ let mainCelciTemp = null;
 
 let degreeFaren = document.querySelector("#farenheitButton");
 degreeFaren.addEventListener("click", displayFarenheit);
+
+let degreeCelci = document.querySelector("#celciusButton");
+degreeCelci.addEventListener("click", displayCelcius);
 
 findWeather("Wellington");
