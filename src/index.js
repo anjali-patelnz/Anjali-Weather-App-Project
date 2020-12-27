@@ -93,11 +93,11 @@ function showHourlyForcast(response) {
     hourlyForcast.innerHTML += `
   <div class="card">
               <div class="card-body">
-                <h5 class="card-title"><img
+                <img class="card-img-top"
         src="http://openweathermap.org/img/wn/${
           hourlydata.weather[0].icon
         }@2x.png"
-      /></h5>
+      />
                 <p class="card-text">${Math.round(hourlydata.main.temp)}°</p>
                 <p class="card-text">${formatHours(hourlydata.dt * 1000)}</p>
               </div>
