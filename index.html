@@ -27,7 +27,7 @@
       <div class="weather-app">
         <div class="search-bar">
           <form id="search-form">
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-8">
                 <input
                   type="search"
@@ -64,27 +64,29 @@
         <h1 id="city">Auckland</h1>
         <p class="date">Sat, 7 November, 2:00</p>
 
-        <div class="row">
-          <div class="col-sm">
-            <div class="weatherIcon">
-              <img src="" alt="" id="mainIcon" class="float-right" />
+        <div class="mainWeather">
+          <div class="row d-flex justify-content-center">
+            <div class="col-sm">
+              <div class="weatherIcon">
+                <img src="" alt="" id="mainIcon" class="mx-auto d-block" />
+              </div>
             </div>
-          </div>
-          <div class="col-sm">
-            <div class="currentTemp">
-              <span id="mainTemp">22°</span>
-              <span class="units">
-                <a href="#" id="celciusButton" class="active">C</a>
-                <span>|</span>
-                <a href="#" id="farenheitButton">F</a>
-              </span>
-              <div class="mainHL">
-                <p>
-                  <i class="fas fa-thermometer-empty"></i
-                  ><span class="mainLo"> 12</span>°
-                  <i class="fas fa-thermometer-full"></i
-                  ><span class="mainHi"> 24</span>°
-                </p>
+            <div class="col-sm mx-auto">
+              <div class="currentTemp">
+                <span id="mainTemp">22°</span>
+                <span class="units">
+                  <a href="#" id="celciusButton" class="active">C</a>
+                  <span>|</span>
+                  <a href="#" id="farenheitButton">F</a>
+                </span>
+                <div class="mainHL">
+                  <p>
+                    <i class="fas fa-thermometer-empty"></i
+                    ><span class="mainLo"> 12</span>°
+                    <i class="fas fa-thermometer-full"></i
+                    ><span class="mainHi"> 24</span>°
+                  </p>
+                </div>
               </div>
             </div>
           </div>
